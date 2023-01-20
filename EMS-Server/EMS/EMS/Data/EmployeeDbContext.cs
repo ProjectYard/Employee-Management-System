@@ -1,6 +1,15 @@
-﻿namespace EMS.Data
+﻿using EMS.Models.Domain;
+using Microsoft.EntityFrameworkCore;
+
+namespace EMS.Data
 {
-    public class EmployeeDbContext
+    public class EmployeeDbContext : DbContext
     {
+        public EmployeeDbContext(DbContextOptions<EmployeeDbContext> options) : base(options)
+        {
+
+        }
+
+        public DbSet<Employee> Employees { get; set; }
     }
 }
