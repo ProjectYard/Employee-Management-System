@@ -1,4 +1,4 @@
-﻿using EMS.Models.Domain;
+﻿using EMS.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EMS.Controllers
@@ -7,49 +7,41 @@ namespace EMS.Controllers
     [Route("api/[controller]")]
     public class EmployeeController : Controller
     {
-        [HttpGet]
-        public IActionResult GetAllEmployee()
+        private readonly IEmployeeRepository employeeRepository;
+
+        public EmployeeController(IEmployeeRepository _employeeRepository)
         {
-            var Emp = new List<Employee>()
+            employeeRepository = _employeeRepository;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllEmployee()
+        {
+            var emp = employeeRepository.GetAllEmployee();
+            if (emp == null)
             {
-                new Employee()
-                {
-                    Id = Guid.NewGuid(),
-                    FirstName= "Ashish",
-                    LastName= "Sahu",
-                    Phone = "8210209272",
-                    Email = "ashish@gmail.com",
-                    Salary = 50000,
-                    Location = "Jamshedpur",
-                    Password= "password",
+                return NotFound();
+            }
 
-                },
-                new Employee()
+            // return DTOs
+            var employeesDTO = new List<Models.DTO.Employee>();
+            emp.ToList().ForEach(x =>
+            {
+                var empDTO = new Models.DTO.Employee()
                 {
-                    Id = Guid.NewGuid(),
-                    FirstName= "Ash",
-                    LastName= "Prime",
-                    Phone = "8210209273",
-                    Email = "ashish2@gmail.com",
-                    Salary = 40000,
-                    Location = "Jamshedpur",
-                    Password= "password1",
+                    Id = x.Id,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Phone = x.Phone,
+                    Email = x.Email,
+                    Salary = x.Salary,
+                    Location = x.Location,
+                    Department = x.Department,
+                    Password = x.Password,
+                };
+            });
 
-                },
-                new Employee()
-                {
-                    Id = Guid.NewGuid(),
-                    FirstName= "Ashly",
-                    LastName= "Sahu",
-                    Phone = "8210209562",
-                    Email = "ashish34@gmail.com",
-                    Salary = 60000,
-                    Location = "Jamshedpur",
-                    Password= "password2",
-
-                },
-            };
-            return Ok(Emp);
+            return Ok(employeesDTO);
         }
     }
 }
