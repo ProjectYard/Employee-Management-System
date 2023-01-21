@@ -11,5 +11,7 @@ namespace EMS.Repository
         Task<Employee> AddEmployee(Employee employee);
 
         Task<Employee> DeleteEmployee(Guid id);
+
+        Task<Employee> UpdateEmployee(Guid id, Employee employee);
     }
 }

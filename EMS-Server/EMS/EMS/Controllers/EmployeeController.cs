@@ -119,5 +119,49 @@ namespace EMS.Controllers
             // return ok response
             return Ok(empDTO);
         }
+
+        [HttpPut]
+        [Route("{id:guid}")]
+        public async Task<IActionResult> UpdateEmployee([FromRoute] Guid id, [FromBody] Models.DTO.UpdateEmployee updateEmp)
+        {
+            // Convrt DTO to domain model
+            var emp = new Models.Domain.Employee()
+            {
+                FirstName = updateEmp.FirstName,
+                LastName = updateEmp.LastName,
+                Email = updateEmp.Email,
+                Phone = updateEmp.Phone,
+                Salary = updateEmp.Salary,
+                Location = updateEmp.Location,
+                Department = updateEmp.Department,
+                Password = updateEmp.Password,
+            };
+
+            // update employee using repo
+            emp = await employeeRepository.UpdateEmployee(id, emp);
+
+            // if null return 
+            if (emp == null)
+            {
+                return NotFound();
+            }
+
+            // convert domain back to dto
+            var empDTO = new Models.DTO.Employee()
+            {
+                Id = emp.Id,
+                FirstName = emp.FirstName,
+                LastName = emp.LastName,
+                Email = emp.Email,
+                Phone = emp.Phone,
+                Salary = emp.Salary,
+                Location = emp.Location,
+                Department = emp.Department,
+                Password = emp.Password,
+            };
+
+            // return ok response
+            return Ok(empDTO);
+        }
     }
 }
