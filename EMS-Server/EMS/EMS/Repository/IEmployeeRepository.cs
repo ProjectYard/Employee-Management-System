@@ -4,6 +4,12 @@ namespace EMS.Repository
 {
     public interface IEmployeeRepository
     {
-        IEnumerable<Employee> GetAllEmployee();
+        Task<IEnumerable<Employee>> GetAllEmployee();
+
+        Task<Employee> GetEmployeeById(Guid id);
+
+        Task<Employee> AddEmployee(Employee employee);
+
+        Task<Employee> DeleteEmployee(Guid id);
     }
 }
