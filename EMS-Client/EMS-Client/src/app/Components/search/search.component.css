@@ -1,0 +1,23 @@
+.lg{
+    color: white;
+    font-size: xx-large;
+    font-weight: 200;
+}
+
+button{
+    background-color: coral;
+    color: white;
+    font-size: large;
+    border: none;
+    margin-top: 1.5rem;
+    transition-duration: 0.4s;
+}
+
+button:hover{
+    background-color: rgb(255, 151, 95);
+    color: white;
+}
+
+.form-section{
+    padding: 3rem;
+}
