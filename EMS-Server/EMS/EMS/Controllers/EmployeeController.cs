@@ -5,10 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EMS.Controllers
 {
+    /* DECORATOR FOR CONTROLLER */
     [ApiController]
     [Route("api/[controller]")]
     public class EmployeeController : Controller
     {
+        /* DEPENDENCY INJECTION OF REPOSITORY */
         private readonly IEmployeeRepository employeeRepository;
         private readonly IMapper mapper;
 
@@ -17,6 +19,8 @@ namespace EMS.Controllers
             employeeRepository = _employeeRepository;
             mapper = _mapper;
         }
+
+        /* ------------- GET METHODS ------------- */
 
         [HttpGet]
         public async Task<IActionResult> GetAllEmployee()
@@ -48,6 +52,8 @@ namespace EMS.Controllers
             var empDTO = mapper.Map<Models.DTO.Employee>(emp);
             return Ok(emp);
         }
+
+        /* ------------- POST METHODS ------------- */
 
         [HttpPost]
         public async Task<IActionResult> AddEmployee(AddEmployee addEmployee)
@@ -90,6 +96,8 @@ namespace EMS.Controllers
             return Ok(empDTO);
         }
 
+        /* ------------- DELETE METHODS ------------- */
+
         [HttpDelete]
         public async Task<IActionResult> DeleteEmployee(Guid id)
         {
@@ -119,6 +127,8 @@ namespace EMS.Controllers
             // return ok response
             return Ok(empDTO);
         }
+
+        /* ------------- PUT METHODS ------------- */
 
         [HttpPut]
         [Route("{id:guid}")]
