@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { DashComponent } from './Pages/dash/dash.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { SearchComponent } from './Components/search/search.component';
+import { EmployeeTableComponent } from './Components/employee-table/employee-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashComponent,
     NavbarComponent,
-    SearchComponent
+    SearchComponent,
+    EmployeeTableComponent
   ],
   imports: [
     BrowserModule,
