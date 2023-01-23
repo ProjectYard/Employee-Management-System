@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./dash.component.css']
 })
 export class DashComponent {
-
+  showAllClicked:boolean = false;
+  EventShowAll(isShowAllClicked:boolean){
+    // console.log(isShowAllClicked);
+    this.showAllClicked = isShowAllClicked;
+  }
 }

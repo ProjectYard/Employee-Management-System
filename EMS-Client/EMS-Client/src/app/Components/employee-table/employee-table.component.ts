@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-employee-table',
@@ -7,4 +8,21 @@ import { Component } from '@angular/core';
 })
 export class EmployeeTableComponent {
 
+  getEmployeeValue:any;
+  @Input() showAllButtonClicked:boolean = false;
+
+  constructor(private http: HttpClient) { 
+    
+  }
+
+  ngOnInit():void{
+   this.getMethod(); 
+  }
+
+  public getMethod(){
+    this.http.get("https://localhost:44393/api/Employee").subscribe((data)=>{
+      this.getEmployeeValue = data;
+      console.log(data)
+    });
+  }
 }

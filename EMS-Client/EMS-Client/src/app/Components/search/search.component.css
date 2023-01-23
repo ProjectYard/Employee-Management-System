@@ -4,7 +4,7 @@
     font-weight: 200;
 }
 
-button{
+.sbutton{
     background-color: coral;
     color: white;
     font-size: large;
@@ -13,18 +13,40 @@ button{
     transition-duration: 0.4s;
 }
 
-button:hover{
+.sbutton:hover{
     background-color: rgb(255, 181, 83);
     color: white;
 }
 
+.all-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    
+}
+
+.show-all{
+    font-size: 1.2rem;
+    font-weight: 200;
+}
+
 .all{
-    background-color: rgb(23, 192, 102);
+    color: white;
+    outline: none;
+    border: none;
+    text-align: center;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.1ms;
 }
 
 .all:hover{
-    background-color: rgb(0, 176, 82);
+    color: rgba(255, 255, 255, 0.594);
 }
+
 
 .form-section{
     padding: 3rem;

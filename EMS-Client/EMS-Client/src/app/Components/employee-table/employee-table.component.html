@@ -12,14 +12,15 @@
           <th>Action</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>Table Data</td>
-          <td>Table Data</td>
-          <td>Table Data</td>
-          <td>Table Data</td>
-          <td>Table Data</td>
-          <td>Table Data</td>
+      <tbody *ngIf="showAllButtonClicked; else elseBlock">
+
+        <tr *ngFor="let dd of getEmployeeValue">
+          <td>{{ dd.firstName+" "+dd.lastName }}</td>
+          <td>{{ dd.phone}}</td>
+          <td>{{ dd.email}}</td>
+          <td>{{ dd.department }}</td>
+          <td>{{ dd.location }}</td>
+          <td>{{ dd.salary }}</td>
           <td>
             <button class="uk-button uk-button-primary uk-button-small">
               <span class="uk-icon icn" uk-icon="icon: file-edit"></span>
@@ -31,8 +32,11 @@
             </button>
           </td>
         </tr>
-        
+
+                
       </tbody>
+      <ng-template #elseBlock>Nothing to show here</ng-template>
     </table>
+    <!-- <h1>{{ showAllButtonClicked }}</h1> -->
   </div>
 </div>

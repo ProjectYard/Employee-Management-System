@@ -8,9 +8,15 @@
                     <input class="uk-input uk-form-large" type="text" placeholder="Input" aria-label="Input" />
                 </div>
             </fieldset>
-            <button class="uk-button all uk-button-default uk-button-large">SHOW ALL EMPLOYEES</button>
-            <button class="uk-button uk-button-default uk-button-large uk-margin-left">SEARCH EMPLOYEE</button>
+            <!-- <button (click)="ShowAllHandler()" class="uk-button all uk-button-default uk-button-large">SHOW ALL EMPLOYEES</button> -->
+            <button class="sbutton uk-button uk-button-default uk-button-large ">SEARCH EMPLOYEE</button>
         </form>
+        <div class="all-button">
+            <button (click)="ShowAllHandler()" class="uk-button all uk-button-default uk-button-large">
+                <span class="show-all">SHOW ALL EMPLOYEES</span>
+                <span class="uk-icon uk-margin-small-right" uk-icon="icon: chevron-down"></span>
+            </button>
+        </div>
     </div>
 
 </div>
