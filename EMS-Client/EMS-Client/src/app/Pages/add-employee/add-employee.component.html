@@ -1,0 +1,58 @@
+<div class="add-form">
+  <app-navbar></app-navbar>
+
+  <!-- <div class="frm uk-container">
+    <h1 class="">Add Employee Data</h1>
+    <div class="inp-frm">
+        <div class="">
+            <input class="uk-input  uk-form-width-large" type="text" placeholder="First Name" aria-label="Input" />
+            <input class="uk-input  uk-form-width-large" type="text" placeholder="Last Name" aria-label="Input" />
+            <input class="uk-input  uk-form-width-large" type="text" placeholder="Phone" aria-label="Input" />
+            <input class="uk-input  uk-form-width-large" type="text" placeholder="Email" aria-label="Input" />
+            <input class="uk-input  uk-form-width-large" type="text" placeholder="Salary" aria-label="Input" />
+            <input class="uk-input  uk-form-width-large" type="text" placeholder="Location" aria-label="Input" />
+            <input class="uk-input  uk-form-width-large" type="text" placeholder="Department" aria-label="Input" />
+            <input class="uk-input  uk-form-width-large" type="text" placeholder="Password" aria-label="Input" />
+        
+        </div>
+    </div>
+    <button
+        class="sbutton uk-button uk-button-default uk-button-large"
+      >
+        SUBMIT EMPLOYEE
+      </button>
+  </div> -->
+
+  <h1>Add Employee Data</h1>
+  <div class="frm-main">
+    
+    <div class="frmm">
+        <form #myForm="ngForm" (ngSubmit)="submitEmployee()">
+            <div class="frm-inp">
+                <input class="uk-input uk-form-width-large" type="text" required [(ngModel)]="emp.fname" placeholder="First Name"
+                    aria-label="Input" name="fname" />
+                <input class="uk-input uk-form-width-large" type="text" required [(ngModel)]="emp.lname" placeholder="Last Name"
+                    aria-label="Input" name="lname" />
+                <input class="uk-input uk-form-width-large" type="text" required [(ngModel)]="emp.phone" placeholder="Phone"
+                    aria-label="Input" name="phone" />
+                <input class="uk-input uk-form-width-large" type="text" required [(ngModel)]="emp.email" placeholder="Email"
+                    aria-label="Input" name="email" />
+                <input class="uk-input uk-form-width-large" type="number" required [(ngModel)]="emp.salary" placeholder="Salary"
+                    aria-label="Input" name="salary" />
+                <input class="uk-input uk-form-width-large" type="text" required [(ngModel)]="emp.location" placeholder="Location"
+                    aria-label="Input" name="location" />
+                <input class="uk-input uk-form-width-large" type="text" required [(ngModel)]="emp.department" placeholder="Department"
+                    aria-label="Input" name="department" />
+                <input class="uk-input uk-form-width-large" type="text" required [(ngModel)]="emp.password" placeholder="Password"
+                    aria-label="Input" name="password" />
+            </div>
+            <div class="frm-butt">
+                <button type="submit" class="sbutton uk-button uk-button-default uk-button-large">
+                    SUBMIT EMPLOYEE
+                </button>
+            </div>
+        </form>
+    </div>
+  </div>
+
+</div>

@@ -26,10 +26,10 @@
 
     <!-- Model -->
 
-    <div id="modal-example" uk-modal >
+    <div id="modal-example" uk-modal>
       <div class="uk-modal-dialog uk-modal-body">
         <app-search-card
-          [fname]="getSearchedEmployeeValue.firstName" 
+          [fname]="getSearchedEmployeeValue.firstName"
           [lname]="getSearchedEmployeeValue.lastName"
           [department]="getSearchedEmployeeValue.department"
           [email]="getSearchedEmployeeValue.email"
@@ -38,7 +38,6 @@
         ></app-search-card>
       </div>
     </div>
-    
 
     <!-- Model Ends here -->
 
@@ -47,13 +46,15 @@
         (click)="ShowAllHandler()"
         class="uk-button all uk-button-default uk-button-large"
       >
-        <span class="show-all">SHOW ALL EMPLOYEES</span>
-        <span
-          *ngIf="clickedAll; else elseBlock"
-          class="uk-icon uk-margin-small-right"
-          uk-icon="icon: chevron-down"
-        ></span>
+        <div class="all" *ngIf="clickedAll; else elseBlock">
+          <span class="show-all">SHOW ALL EMPLOYEES</span>
+          <span
+            class="uk-icon uk-margin-small-right"
+            uk-icon="icon: chevron-down"
+          ></span>
+        </div>
         <ng-template #elseBlock>
+          <span class="show-all">SHOW LESS</span>
           <span
             class="uk-icon uk-margin-small-right"
             uk-icon="icon: chevron-up"

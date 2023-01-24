@@ -1,0 +1,52 @@
+.add-form{
+    height: 100vh;
+    width: auto;
+    background-color: #1E87F0;
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
+
+.frm-main{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.frmm{
+    width: 70vw;
+    height: auto;
+}
+
+.frm-inp input{
+    margin: 0.5rem;
+}
+
+.frm-butt{
+    
+}
+
+
+/* Side css */
+
+.sbutton {
+    background-color: coral;
+    color: white;
+    font-size: large;
+    border: none;
+    margin-top: 1.5rem;
+    transition-duration: 0.4s;
+}
+
+.sbutton:hover {
+    background-color: rgb(255, 181, 83);
+    color: white;
+}
+
+.inp-frm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -10,6 +10,7 @@ import { SearchComponent } from './Components/search/search.component';
 import { EmployeeTableComponent } from './Components/employee-table/employee-table.component';
 import { FormsModule } from '@angular/forms';
 import { SearchCardComponent } from './Components/search-card/search-card.component';
+import { AddEmployeeComponent } from './Pages/add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SearchCardComponent } from './Components/search-card/search-card.compon
     NavbarComponent,
     SearchComponent,
     EmployeeTableComponent,
-    SearchCardComponent
+    SearchCardComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,
