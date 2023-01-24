@@ -1,22 +1,65 @@
 <div class="form-section uk-section-primary uk-preserve-color">
-    <div class="uk-container">
-        <form>
-            <fieldset class="uk-fieldset">
-                <legend class="uk-legend lg">ENTER  EMPLOYEE  UUID</legend>
-    
-                <div class="uk-margin">
-                    <input class="uk-input uk-form-large" type="text" placeholder="Input" aria-label="Input" />
-                </div>
-            </fieldset>
-            <!-- <button (click)="ShowAllHandler()" class="uk-button all uk-button-default uk-button-large">SHOW ALL EMPLOYEES</button> -->
-            <button class="sbutton uk-button uk-button-default uk-button-large ">SEARCH EMPLOYEE</button>
-        </form>
-        <div class="all-button">
-            <button (click)="ShowAllHandler()" class="uk-button all uk-button-default uk-button-large">
-                <span class="show-all">SHOW ALL EMPLOYEES</span>
-                <span class="uk-icon uk-margin-small-right" uk-icon="icon: chevron-down"></span>
-            </button>
-        </div>
-    </div>
+  <div class="uk-container">
+    <fieldset class="uk-fieldset">
+      <legend class="uk-legend lg">ENTER EMPLOYEE UUID</legend>
 
+      <div class="uk-margin">
+        <input
+          class="uk-input uk-form-large"
+          type="text"
+          placeholder="Input"
+          aria-label="Input"
+          [(ngModel)]="inpUUID"
+          autofocus
+          required
+        />
+      </div>
+    </fieldset>
+    <!-- <button (click)="ShowAllHandler()" class="uk-button all uk-button-default uk-button-large">SHOW ALL EMPLOYEES</button> -->
+    <button
+      class="sbutton uk-button uk-button-default uk-button-large"
+      uk-toggle="target: #modal-example"
+      (click)="getMethod()"
+    >
+      SEARCH EMPLOYEE
+    </button>
+
+    <!-- Model -->
+
+    <div id="modal-example" uk-modal >
+      <div class="uk-modal-dialog uk-modal-body">
+        <app-search-card
+          [fname]="getSearchedEmployeeValue.firstName" 
+          [lname]="getSearchedEmployeeValue.lastName"
+          [department]="getSearchedEmployeeValue.department"
+          [email]="getSearchedEmployeeValue.email"
+          [location]="getSearchedEmployeeValue.location"
+          [phone]="getSearchedEmployeeValue.phone"
+        ></app-search-card>
+      </div>
+    </div>
+    
+
+    <!-- Model Ends here -->
+
+    <div class="all-button">
+      <button
+        (click)="ShowAllHandler()"
+        class="uk-button all uk-button-default uk-button-large"
+      >
+        <span class="show-all">SHOW ALL EMPLOYEES</span>
+        <span
+          *ngIf="clickedAll; else elseBlock"
+          class="uk-icon uk-margin-small-right"
+          uk-icon="icon: chevron-down"
+        ></span>
+        <ng-template #elseBlock>
+          <span
+            class="uk-icon uk-margin-small-right"
+            uk-icon="icon: chevron-up"
+          ></span>
+        </ng-template>
+      </button>
+    </div>
+  </div>
 </div>

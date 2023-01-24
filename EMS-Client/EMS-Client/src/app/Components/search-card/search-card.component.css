@@ -1,0 +1,36 @@
+.pill{
+    background-color: rgb(41, 199, 112);
+    color: white;
+    padding-left: 1rem;
+    display: flex;
+    margin: 1rem;
+    
+}
+
+.pill span{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.pill p{
+    margin: 1rem;
+}
+
+.uk-card-body{
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 15pt;
+}
+
+.dk{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+img{
+    height: 8rem;
+    width: 8rem;
+}

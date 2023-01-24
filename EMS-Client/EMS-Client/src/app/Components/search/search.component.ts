@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
@@ -7,7 +8,41 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class SearchComponent {
   @Output() showAllEvent:EventEmitter<boolean> = new EventEmitter();
+  clickedAll : boolean = true;
+  inpUUID:string = "";
+  getSearchedEmployeeValue:any;
+  isEmpty:number = this.inpUUID.length;
+
+  constructor(private http: HttpClient) { 
+    
+  }
+
+  ngOnInit():void{
+   this.getMethod(); 
+  }
+
+  public isInpEmpty(){
+    if(this.inpUUID == "")
+      return true;
+    else
+      return false;
+  }
+
+  public getMethod(){
+      this.http.get("https://localhost:44393/api/Employee/"+this.inpUUID).subscribe((data)=>{
+      console.log(data)
+      this.getSearchedEmployeeValue = data;
+    });
+  }
+
   ShowAllHandler(){
-    this.showAllEvent.emit(true);
+    if(this.clickedAll){
+      this.showAllEvent.emit(true);
+      this.clickedAll = false;
+    }else{
+      this.showAllEvent.emit(false);
+      this.clickedAll = true;
+    }
+    
   }
 }
