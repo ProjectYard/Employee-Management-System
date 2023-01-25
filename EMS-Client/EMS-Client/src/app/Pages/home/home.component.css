@@ -1,0 +1,57 @@
+.hm {
+  display: flex;
+  background-color: #1e87f0;
+  height: 89.8vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sbutton {
+  background-color: coral;
+  color: white;
+  font-size: large;
+  border: none;
+  margin-top: 1.5rem;
+  transition-duration: 0.4s;
+}
+
+.sbutton:hover {
+  background-color: rgb(255, 181, 83);
+  color: white;
+}
+
+h1 {
+  color: white;
+  font-weight: 700;
+  letter-spacing: 3pt;
+}
+
+@keyframes example {
+  0% {
+    transform: scale(1);
+  }
+
+  20% {
+    transform: scale(1.05);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+
+  60% {
+    transform: scale(1.05);
+  }
+  60% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+}
+
+img {
+  animation: example 4s infinite;
+}

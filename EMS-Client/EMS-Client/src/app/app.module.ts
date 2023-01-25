@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +14,12 @@ import { EmployeeTableComponent } from './Components/employee-table/employee-tab
 import { FormsModule } from '@angular/forms';
 import { SearchCardComponent } from './Components/search-card/search-card.component';
 import { AddEmployeeComponent } from './Pages/add-employee/add-employee.component';
+import { HomeComponent } from './Pages/home/home.component';
+
+const appRoute:Routes = [
+  {path:'Home',component:HomeComponent},
+  {path:'Dash',component:DashComponent},
+]
 
 @NgModule({
   declarations: [
@@ -20,13 +29,17 @@ import { AddEmployeeComponent } from './Pages/add-employee/add-employee.componen
     SearchComponent,
     EmployeeTableComponent,
     SearchCardComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(),
+    RouterModule.forRoot(appRoute), 
   ],
   providers: [],
   bootstrap: [AppComponent]

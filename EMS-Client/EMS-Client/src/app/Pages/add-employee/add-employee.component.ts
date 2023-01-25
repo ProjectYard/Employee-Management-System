@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
@@ -18,7 +18,7 @@ export class AddEmployeeComponent {
     password:""
   };
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient,private toastr: ToastrService) { 
     
   }
 
@@ -45,7 +45,7 @@ export class AddEmployeeComponent {
     console.log(this.emp);
     this.http.post("https://localhost:44393/api/Employee",this.emp,httpOptions).subscribe((data)=>{
       console.log(data);
-      this.postSuccess = true;
+      this.toastr.success('Added successfully');
     });
     this.clearObj();
   }
