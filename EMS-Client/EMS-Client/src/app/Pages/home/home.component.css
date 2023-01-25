@@ -8,6 +8,11 @@
   flex-direction: column;
 }
 
+a{
+  text-decoration: none;
+  color: white;
+}
+
 .sbutton {
   background-color: coral;
   color: white;
@@ -24,8 +29,12 @@
 
 h1 {
   color: white;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 3pt;
+}
+
+h1 span{
+    font-size: 5rem;
 }
 
 @keyframes example {

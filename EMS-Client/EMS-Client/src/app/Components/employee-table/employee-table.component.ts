@@ -25,4 +25,19 @@ export class EmployeeTableComponent {
       console.log(data)
     });
   }
+
+  editBtnHandler(){
+
+  }
+
+  Url = "https://localhost:44393/api/Employee";
+
+  delBtnHandler(id:any){
+    console.log(id);
+    const url = this.Url+"?id="+id;
+    this.http.delete(url).subscribe((data)=>{
+      console.log(data);
+      this.ngOnInit();
+    })
+  }
 }

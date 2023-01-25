@@ -22,11 +22,11 @@
           <td>{{ dd.location }}</td>
           <td>{{ dd.salary }}</td>
           <td>
-            <button class="uk-button uk-button-primary uk-button-small">
+            <button class="uk-button uk-button-primary uk-button-small" (click)="editBtnHandler()">
               <span class="uk-icon icn" uk-icon="icon: file-edit"></span>
             </button>
             <button
-              class="uk-button uk-button-danger uk-button-small uk-margin-left"
+              class="uk-button uk-button-danger uk-button-small uk-margin-left" (click)="delBtnHandler(dd.id)"
             >
               <span class="uk-icon icn" uk-icon="icon: trash"></span>
             </button>

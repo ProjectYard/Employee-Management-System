@@ -2,14 +2,20 @@
   <div
     uk-sticky="start: 200; animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light"
   >
-    <nav class="uk-navbar-container uk-margin-left" uk-navbar>
+    <nav class="uk-navbar-container uk-padding-left" uk-navbar>
       <div class="uk-navbar-left">
-        <a class="uk-navbar-item uk-logo" href="#" aria-label="Back to Home"
+        <a class="uk-navbar-item uk-margin-left uk-logo" href="#" aria-label="Back to Home"
           >EMS</a
         >
       </div>
       <div class="uk-navbar-right uk-margin-right">
         <ul class="uk-navbar-nav">
+          <li>
+            <a href="/Add">
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: plus-circle"></span>
+              Add Employee
+            </a>
+          </li>
           <li>
             <a href="#">
               <span
@@ -28,6 +34,7 @@
               Logout
             </a>
           </li>
+          
         </ul>
       </div>
     </nav>

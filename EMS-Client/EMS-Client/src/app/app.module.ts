@@ -15,10 +15,12 @@ import { FormsModule } from '@angular/forms';
 import { SearchCardComponent } from './Components/search-card/search-card.component';
 import { AddEmployeeComponent } from './Pages/add-employee/add-employee.component';
 import { HomeComponent } from './Pages/home/home.component';
+import { Navbar2Component } from './Components/navbar2/navbar2.component';
 
 const appRoute:Routes = [
   {path:'Home',component:HomeComponent},
   {path:'Dash',component:DashComponent},
+  {path:'Add',component:AddEmployeeComponent}
 ]
 
 @NgModule({
@@ -30,7 +32,8 @@ const appRoute:Routes = [
     EmployeeTableComponent,
     SearchCardComponent,
     AddEmployeeComponent,
-    HomeComponent
+    HomeComponent,
+    Navbar2Component
   ],
   imports: [
     BrowserModule,
