@@ -1,0 +1,8 @@
+.sbutton {
+    background-color: coral;
+    color: white;
+    font-size: large;
+    border: none;
+    margin-top: 1.5rem;
+    transition-duration: 0.4s;
+}

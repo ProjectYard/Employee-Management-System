@@ -13,27 +13,40 @@
         </tr>
       </thead>
       <tbody *ngIf="showAllButtonClicked; else elseBlock">
-
         <tr *ngFor="let dd of getEmployeeValue">
-          <td>{{ dd.firstName+" "+dd.lastName }}</td>
-          <td>{{ dd.phone}}</td>
-          <td>{{ dd.email}}</td>
+          <td>{{ dd.firstName + " " + dd.lastName }}</td>
+          <td>{{ dd.phone }}</td>
+          <td>{{ dd.email }}</td>
           <td>{{ dd.department }}</td>
           <td>{{ dd.location }}</td>
           <td>{{ dd.salary }}</td>
           <td>
-            <button class="uk-button uk-button-primary uk-button-small" (click)="editBtnHandler()">
+            <button
+              class="uk-button uk-button-primary uk-button-small"
+              uk-toggle="target: #modal-example-edit"
+              
+            >
               <span class="uk-icon icn" uk-icon="icon: file-edit"></span>
             </button>
             <button
-              class="uk-button uk-button-danger uk-button-small uk-margin-left" (click)="delBtnHandler(dd.id)"
+              class="uk-button uk-button-danger uk-button-small uk-margin-left"
+              (click)="delBtnHandler(dd.id)"
             >
               <span class="uk-icon icn" uk-icon="icon: trash"></span>
             </button>
+            
+            <!-- Model to show edit -->
+            <div id="modal-example-edit" uk-modal>
+              <div class="uk-modal-dialog uk-modal-body">
+                <app-editcard [editID]="dd.id"></app-editcard>
+              </div>
+            </div>
+
+
+
+
           </td>
         </tr>
-
-                
       </tbody>
       <ng-template #elseBlock>Nothing to show here</ng-template>
     </table>

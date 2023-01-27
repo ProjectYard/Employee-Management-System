@@ -19,15 +19,15 @@ export class EmployeeTableComponent {
    this.getMethod(); 
   }
 
+  editBtnHandler(){
+    this.ngOnInit();
+  }
+
   public getMethod(){
     this.http.get("https://localhost:44393/api/Employee").subscribe((data)=>{
       this.getEmployeeValue = data;
       console.log(data)
     });
-  }
-
-  editBtnHandler(){
-
   }
 
   Url = "https://localhost:44393/api/Employee";

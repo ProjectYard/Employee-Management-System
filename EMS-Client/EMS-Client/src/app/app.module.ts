@@ -16,6 +16,7 @@ import { SearchCardComponent } from './Components/search-card/search-card.compon
 import { AddEmployeeComponent } from './Pages/add-employee/add-employee.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { Navbar2Component } from './Components/navbar2/navbar2.component';
+import { EditcardComponent } from './Components/editcard/editcard.component';
 
 const appRoute:Routes = [
   {path:'Home',component:HomeComponent},
@@ -33,7 +34,8 @@ const appRoute:Routes = [
     SearchCardComponent,
     AddEmployeeComponent,
     HomeComponent,
-    Navbar2Component
+    Navbar2Component,
+    EditcardComponent
   ],
   imports: [
     BrowserModule,
