@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
 }
 
 a{
@@ -34,7 +35,9 @@ h1 {
 }
 
 h1 span{
-    font-size: 5rem;
+  font-weight: 700;
+    font-size: 3.5rem;
+    color: rgb(255, 145, 106);
 }
 
 @keyframes example {

@@ -17,9 +17,12 @@ import { AddEmployeeComponent } from './Pages/add-employee/add-employee.componen
 import { HomeComponent } from './Pages/home/home.component';
 import { Navbar2Component } from './Components/navbar2/navbar2.component';
 import { EditcardComponent } from './Components/editcard/editcard.component';
+import { SigninComponent } from './Pages/signin/signin.component';
+import { LoginComponent } from './Pages/login/login.component';
 
 const appRoute:Routes = [
-  {path:'Home',component:HomeComponent},
+  {path:'',component:HomeComponent},
+  {path:'login',component:LoginComponent},
   {path:'Dash',component:DashComponent},
   {path:'Add',component:AddEmployeeComponent}
 ]
@@ -35,7 +38,9 @@ const appRoute:Routes = [
     AddEmployeeComponent,
     HomeComponent,
     Navbar2Component,
-    EditcardComponent
+    EditcardComponent,
+    SigninComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

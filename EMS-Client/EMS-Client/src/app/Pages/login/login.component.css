@@ -1,0 +1,38 @@
+.sbutton {
+    background-color: coral;
+    color: white;
+    font-size: large;
+    border: none;
+    margin-top: 1.5rem;
+    transition-duration: 0.4s;
+}
+
+.sn-main{
+    
+    background-color: #1E87F0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.sn-box{
+    
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    color: white;
+}
+
+input{
+    margin-top: 1rem;
+}
+
+img{
+    width: 20rem;
+    height: auto;
+}
+
