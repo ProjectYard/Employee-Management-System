@@ -66,4 +66,6 @@ h1 span{
 
 img {
   animation: example 4s infinite;
+  width: 35rem;
+  height: auto;
 }
