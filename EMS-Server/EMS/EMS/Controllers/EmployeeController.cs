@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EMS.Models.DTO;
 using EMS.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EMS.Controllers
@@ -8,6 +9,7 @@ namespace EMS.Controllers
     /* DECORATOR FOR CONTROLLER */
     [ApiController]
     [Route("api/[controller]")]
+
     public class EmployeeController : Controller
     {
         /* DEPENDENCY INJECTION OF REPOSITORY */
@@ -23,6 +25,7 @@ namespace EMS.Controllers
         /* ------------- GET METHODS ------------- */
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllEmployee()
         {
             var emp = await employeeRepository.GetAllEmployee();
@@ -56,6 +59,7 @@ namespace EMS.Controllers
         /* ------------- POST METHODS ------------- */
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AddEmployee(AddEmployee addEmployee)
         {
             // Request(DTO) to domain model
@@ -99,6 +103,7 @@ namespace EMS.Controllers
         /* ------------- DELETE METHODS ------------- */
 
         [HttpDelete]
+        [Authorize]
         public async Task<IActionResult> DeleteEmployee(Guid id)
         {
             // Get employee form DB
@@ -132,6 +137,7 @@ namespace EMS.Controllers
 
         [HttpPut]
         [Route("{id:guid}")]
+        [Authorize]
         public async Task<IActionResult> UpdateEmployee([FromRoute] Guid id, [FromBody] Models.DTO.UpdateEmployee updateEmp)
         {
             // Convrt DTO to domain model
