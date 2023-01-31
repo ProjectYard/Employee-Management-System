@@ -39,11 +39,12 @@ export class AddEmployeeComponent {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
-        Authorization: 'my-auth-token'
+        // Authorization: 'my-auth-token',
+        Authorization:`Bearer ${localStorage.getItem("tokenn")}`,
       })
     }
     console.log(this.emp);
-    this.http.post("https://localhost:44393/api/Employee",this.emp,httpOptions).subscribe((data)=>{
+    this.http.post("https://localhost:7092/api/Employee",this.emp,httpOptions).subscribe((data)=>{
       console.log(data);
       this.toastr.success('Added successfully');
     });

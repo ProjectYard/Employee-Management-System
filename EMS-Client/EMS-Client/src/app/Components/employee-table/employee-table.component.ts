@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -24,18 +24,32 @@ export class EmployeeTableComponent {
   }
 
   public getMethod(){
-    this.http.get("https://localhost:44393/api/Employee").subscribe((data)=>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        // Authorization: 'my-auth-token',
+        Authorization:`Bearer ${localStorage.getItem("tokenn")}`,
+      })
+    }
+    this.http.get("https://localhost:7092/api/Employee",httpOptions).subscribe((data)=>{
       this.getEmployeeValue = data;
       console.log(data)
     });
   }
 
-  Url = "https://localhost:44393/api/Employee";
+  Url = "https://localhost:7092/api/Employee";
 
   delBtnHandler(id:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        // Authorization: 'my-auth-token',
+        Authorization:`Bearer ${localStorage.getItem("tokenn")}`,
+      })
+    }
     console.log(id);
     const url = this.Url+"?id="+id;
-    this.http.delete(url).subscribe((data)=>{
+    this.http.delete(url,httpOptions).subscribe((data)=>{
       console.log(data);
       this.ngOnInit();
     })

@@ -25,7 +25,7 @@ namespace EMS.Controllers
         /* ------------- GET METHODS ------------- */
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "reader")]
         public async Task<IActionResult> GetAllEmployee()
         {
             var emp = await employeeRepository.GetAllEmployee();
@@ -43,6 +43,7 @@ namespace EMS.Controllers
         [HttpGet]
         [Route("{id:guid}")]
         [ActionName("GetEmployeeById")]
+        [Authorize(Roles = "reader")]
         public async Task<IActionResult> GetEmployeeById(Guid id)
         {
             var emp = await employeeRepository.GetEmployeeById(id);
@@ -59,7 +60,7 @@ namespace EMS.Controllers
         /* ------------- POST METHODS ------------- */
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "writer")]
         public async Task<IActionResult> AddEmployee(AddEmployee addEmployee)
         {
             // Request(DTO) to domain model
@@ -103,7 +104,7 @@ namespace EMS.Controllers
         /* ------------- DELETE METHODS ------------- */
 
         [HttpDelete]
-        [Authorize]
+        [Authorize(Roles = "writer")]
         public async Task<IActionResult> DeleteEmployee(Guid id)
         {
             // Get employee form DB
@@ -137,7 +138,7 @@ namespace EMS.Controllers
 
         [HttpPut]
         [Route("{id:guid}")]
-        [Authorize]
+        [Authorize(Roles = "writer")]
         public async Task<IActionResult> UpdateEmployee([FromRoute] Guid id, [FromBody] Models.DTO.UpdateEmployee updateEmp)
         {
             // Convrt DTO to domain model

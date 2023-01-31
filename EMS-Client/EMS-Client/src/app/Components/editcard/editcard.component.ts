@@ -29,14 +29,15 @@ export class EditcardComponent {
   ngOnInit():void{
   }
   editEmployee(){
-    // const httpOptions = {
-    //   headers: new HttpHeaders({
-    //     'Content-Type':  'application/json',
-    //     Authorization: 'my-auth-token'
-    //   })
-    // }
-    const url = "https://localhost:44393/api/Employee/"+this.editID;
-    this.http.put(url,this.emp).subscribe((data)=>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        // Authorization: 'my-auth-token',
+        Authorization:`Bearer ${localStorage.getItem("tokenn")}`,
+      })
+    }
+    const url = "https://localhost:7092/api/Employee/"+this.editID;
+    this.http.put(url,this.emp,httpOptions).subscribe((data)=>{
       console.log(data);
     })
 

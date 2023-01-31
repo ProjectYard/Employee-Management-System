@@ -1,4 +1,5 @@
-﻿using EMS.Repository;
+﻿using EMS.Models.Domain;
+using EMS.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EMS.Controllers
@@ -16,7 +17,7 @@ namespace EMS.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> LoginAync(Models.DTO.LoginRequest loginReq)
+        public async Task<IActionResult> LoginAync([FromBody] Models.DTO.LoginRequest loginReq)
         {
             // Check if user is authenticated
             // check username and password
@@ -26,7 +27,11 @@ namespace EMS.Controllers
             {
                 // Generate JWT token
                 var token = await tokenhandler.CreateTokenAsync(user);
-                return Ok(token);
+                var tk = new Token()
+                {
+                    Tokenn = token,
+                };
+                return Ok(tk);
 
             }
 

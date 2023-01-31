@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
@@ -29,9 +29,17 @@ export class SearchComponent {
   }
 
   public getMethod(){
-      this.http.get("https://localhost:44393/api/Employee/"+this.inpUUID).subscribe((data)=>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        // Authorization: 'my-auth-token',
+        Authorization:`Bearer ${localStorage.getItem("tokenn")}`,
+      })
+    }
+      this.http.get("https://localhost:7092/api/Employee/"+this.inpUUID,httpOptions).subscribe((data)=>{
       console.log(data)
       this.getSearchedEmployeeValue = data;
+      console.log(this.getSearchedEmployeeValue)
     });
   }
 
