@@ -2,5 +2,6 @@
 {
     public class Token
     {
+        public string Tokenn { get; set; }
     }
 }

@@ -2,29 +2,29 @@
 
 namespace EMS.Repository
 {
-    public class StaticUserRepository : IUserRepository
+    public class StaticUserRepository
     {
 
         private List<User> Users = new List<User>()
         {
-            new User()
-            {
-                UserEmployee = new Employee()
-                {
-                    FirstName= "Ashish",LastName="Sahu", Email="ashishsahu10428@gmail.com",
-                    Id = Guid.NewGuid(), Password = "@Happy2015",
-                },
-                Roles = new List<string> {"reader","writer"}
-            },
-            new User()
-            {
-                UserEmployee = new Employee()
-                {
-                    FirstName= "Shristi",LastName="Jalan", Email="shristijalan1010@gmail.com",
-                    Id = Guid.NewGuid(), Password = "@Smile2015",
-                },
-                Roles = new List<string> {"reader"}
-            },
+            //new User()
+            //{
+            //    UserEmployee = new Employee()
+            //    {
+            //        FirstName= "Ashish",LastName="Sahu", Email="ashishsahu10428@gmail.com",
+            //        Id = Guid.NewGuid(), Password = "@Happy2015",
+            //    },
+            //    Roles = new List<string> {"reader","writer"}
+            //},
+            //new User()
+            //{
+            //    UserEmployee = new Employee()
+            //    {
+            //        FirstName= "Shristi",LastName="Jalan", Email="shristijalan1010@gmail.com",
+            //        Id = Guid.NewGuid(), Password = "@Smile2015",
+            //    },
+            //    Roles = new List<string> {"reader"}
+            //},
 
         };
 

@@ -43,7 +43,7 @@ builder.Services.AddDbContext<EmployeeDbContext>(options => options.UseSqlServer
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<ITokenhandler, EMS.Repository.TokenHandler>();
 
-builder.Services.AddSingleton<IUserRepository, StaticUserRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
