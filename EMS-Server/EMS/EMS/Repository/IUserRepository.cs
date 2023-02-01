@@ -4,8 +4,8 @@ namespace EMS.Repository
 {
     public interface IUserRepository
     {
-        Task<User> AuthenticateAsync(string username, string password);
+        Task<Employee> AuthenticateAsync(string username, string password);
 
-        //Task<User> AddUser(Employee employee);
+        Task<User_Role> AddUser(Employee employee);
     }
 }

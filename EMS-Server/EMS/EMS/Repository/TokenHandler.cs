@@ -15,15 +15,15 @@ namespace EMS.Repository
             this.configuration = configuration;
         }
 
-        public Task<string> CreateTokenAsync(User user)
+        public Task<string> CreateTokenAsync(Employee user)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]));
 
             // create claim
             var claims = new List<Claim>();
-            claims.Add(new Claim(ClaimTypes.GivenName, user.UserEmployee.FirstName));
-            claims.Add(new Claim(ClaimTypes.Surname, user.UserEmployee.LastName));
-            claims.Add(new Claim(ClaimTypes.Email, user.UserEmployee.Email));
+            claims.Add(new Claim(ClaimTypes.GivenName, user.FirstName));
+            claims.Add(new Claim(ClaimTypes.Surname, user.LastName));
+            claims.Add(new Claim(ClaimTypes.Email, user.Email));
 
             user.Roles.ForEach((role) =>
             {

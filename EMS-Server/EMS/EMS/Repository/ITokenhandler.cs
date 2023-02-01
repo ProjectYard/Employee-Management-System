@@ -4,6 +4,6 @@ namespace EMS.Repository
 {
     public interface ITokenhandler
     {
-        public Task<string> CreateTokenAsync(User user);
+        public Task<string> CreateTokenAsync(Employee user);
     }
 }

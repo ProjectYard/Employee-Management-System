@@ -6,15 +6,29 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EMS.Migrations
 {
     /// <inheritdoc />
-    public partial class addinguser : Migration
+    public partial class InitialNewDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Users",
-                table: "Users",
-                column: "Id");
+            migrationBuilder.CreateTable(
+                name: "Employees",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Salary = table.Column<int>(type: "int", nullable: false),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Department = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Employees", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Roles",
@@ -40,15 +54,15 @@ namespace EMS.Migrations
                 {
                     table.PrimaryKey("PK_Users_Roles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_Roles_Roles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "Roles",
+                        name: "FK_Users_Roles_Employees_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Employees",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Users_Roles_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_Users_Roles_Roles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "Roles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -71,11 +85,10 @@ namespace EMS.Migrations
                 name: "Users_Roles");
 
             migrationBuilder.DropTable(
-                name: "Roles");
+                name: "Employees");
 
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Users",
-                table: "Users");
+            migrationBuilder.DropTable(
+                name: "Roles");
         }
     }
 }

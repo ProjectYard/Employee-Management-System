@@ -14,19 +14,16 @@ namespace EMS.Repository
 
 
 
-        public async Task<User> AuthenticateAsync(string username, string password)
+        public async Task<Employee> AuthenticateAsync(string username, string password)
         {
-            var user_rec = await dbContext.Users.FirstOrDefaultAsync(x => x.UserEmployee.Email.Equals(username) &&
-            x.UserEmployee.Password == password);
+            var user_rec = await dbContext.Employees.FirstOrDefaultAsync(x => x.Email.Equals(username) &&
+            x.Password == password);
 
             //var user_rec = await dbContext.Users.FirstOrDefaultAsync(x => x.UserEmployee.Email.Equals(username) &&
             //x.UserEmployee.Password == password);
 
-            var a = await dbContext.Users.FindAsync(user_rec.Id);
 
-
-
-            if (user_rec.UserEmployee == null)
+            if (user_rec == null)
             {
                 Console.WriteLine("***** EMPLOYEE IS EMPTY *****");
                 return null;
@@ -50,6 +47,22 @@ namespace EMS.Repository
             //user_rec.UserEmployee.Password = null;
             Console.WriteLine(user_rec);
             return user_rec;
+        }
+
+        public async Task<User_Role> AddUser(Employee employee)
+        {
+            var rls = await dbContext.Roles.ToListAsync();
+
+            var ur = new User_Role()
+            {
+                Id = Guid.NewGuid(),
+                RoleId = rls.Find(x => x.Name == "reader").Id,
+
+                UserId = employee.Id,
+                //User = employee
+            };
+            await dbContext.Users_Roles.AddAsync(ur);
+            return ur;
         }
     }
 }

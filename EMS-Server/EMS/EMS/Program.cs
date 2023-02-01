@@ -39,11 +39,10 @@ builder.Services.AddSwaggerGen(options =>
 
 // Registering dependency  
 builder.Services.AddDbContext<EmployeeDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EmployeeAPIConnectionString")));
-
+builder.Services.AddScoped<IUserRepository, EMS.Repository.UserRepository>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<ITokenhandler, EMS.Repository.TokenHandler>();
 
-builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 

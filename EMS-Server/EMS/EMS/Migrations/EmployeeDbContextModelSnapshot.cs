@@ -79,22 +79,6 @@ namespace EMS.Migrations
                     b.ToTable("Roles");
                 });
 
-            modelBuilder.Entity("EMS.Models.Domain.User", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserEmployeeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserEmployeeId");
-
-                    b.ToTable("Users");
-                });
-
             modelBuilder.Entity("EMS.Models.Domain.User_Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -116,17 +100,6 @@ namespace EMS.Migrations
                     b.ToTable("Users_Roles");
                 });
 
-            modelBuilder.Entity("EMS.Models.Domain.User", b =>
-                {
-                    b.HasOne("EMS.Models.Domain.Employee", "UserEmployee")
-                        .WithMany()
-                        .HasForeignKey("UserEmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserEmployee");
-                });
-
             modelBuilder.Entity("EMS.Models.Domain.User_Role", b =>
                 {
                     b.HasOne("EMS.Models.Domain.Role", "Role")
@@ -135,7 +108,7 @@ namespace EMS.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EMS.Models.Domain.User", "User")
+                    b.HasOne("EMS.Models.Domain.Employee", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -146,12 +119,12 @@ namespace EMS.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("EMS.Models.Domain.Role", b =>
+            modelBuilder.Entity("EMS.Models.Domain.Employee", b =>
                 {
                     b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("EMS.Models.Domain.User", b =>
+            modelBuilder.Entity("EMS.Models.Domain.Role", b =>
                 {
                     b.Navigation("UserRoles");
                 });

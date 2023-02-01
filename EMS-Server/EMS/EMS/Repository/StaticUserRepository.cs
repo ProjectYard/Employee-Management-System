@@ -5,7 +5,7 @@ namespace EMS.Repository
     public class StaticUserRepository
     {
 
-        private List<User> Users = new List<User>()
+        private List<Employee> Users = new List<Employee>()
         {
             //new User()
             //{
@@ -28,10 +28,10 @@ namespace EMS.Repository
 
         };
 
-        public async Task<User> AuthenticateAsync(string username, string password)
+        public async Task<Employee> AuthenticateAsync(string username, string password)
         {
-            var user = Users.Find(x => x.UserEmployee.Email.Equals(username, StringComparison.InvariantCultureIgnoreCase) &&
-            x.UserEmployee.Password == password);
+            var user = Users.Find(x => x.Email.Equals(username, StringComparison.InvariantCultureIgnoreCase) &&
+            x.Password == password);
 
             return user;
         }

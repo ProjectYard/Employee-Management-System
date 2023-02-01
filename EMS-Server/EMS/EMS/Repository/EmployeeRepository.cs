@@ -7,6 +7,7 @@ namespace EMS.Repository
     public class EmployeeRepository : IEmployeeRepository
     {
         private readonly EmployeeDbContext dbContext;
+
         public EmployeeRepository(EmployeeDbContext _dbContext)
         {
             dbContext = _dbContext;
@@ -27,6 +28,21 @@ namespace EMS.Repository
         {
             employee.Id = Guid.NewGuid();
             await dbContext.AddAsync(employee);
+            await dbContext.SaveChangesAsync();
+
+            //UserRepository.AddUser(employee);
+            var rls = await dbContext.Roles.ToListAsync();
+            Guid g = new Guid("b7717016-1bdf-475d-9916-eb8bb22769d3");
+
+            var ur = new User_Role()
+            {
+                Id = Guid.NewGuid(),
+                RoleId = g,
+
+                UserId = employee.Id,
+                //User = employee
+            };
+            await dbContext.Users_Roles.AddAsync(ur);
             await dbContext.SaveChangesAsync();
 
             return employee;
