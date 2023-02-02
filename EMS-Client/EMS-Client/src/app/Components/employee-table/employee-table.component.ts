@@ -19,6 +19,10 @@ export class EmployeeTableComponent {
    this.getMethod(); 
   }
 
+  edtHandler(){
+    console.log("Testing")
+  }
+
   editBtnHandler(){
     this.ngOnInit();
   }

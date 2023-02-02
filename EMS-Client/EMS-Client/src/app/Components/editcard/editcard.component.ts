@@ -56,6 +56,7 @@ export class EditcardComponent {
       console.log(data);
     },(err)=>{
       alert("Not allowed");
+      window.location.reload();
       console.log("Not Allowed")
     })
 
