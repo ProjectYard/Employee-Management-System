@@ -51,6 +51,7 @@ export class EmployeeTableComponent {
     const url = this.Url+"?id="+id;
     this.http.delete(url,httpOptions).subscribe((data)=>{
       console.log(data);
+      
       this.ngOnInit();
     })
   }

@@ -12,6 +12,11 @@ export class HomeComponent {
     
   }
   continueHandler(){
-    this.router.navigate(["/login"])
+    if(localStorage.getItem("tokenn")){
+      this.router.navigate(["/Dash"])
+    }
+    else{
+      this.router.navigate(["/login"])
+    }
   }
 }
