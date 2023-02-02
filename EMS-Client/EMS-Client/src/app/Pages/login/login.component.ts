@@ -33,7 +33,10 @@ export class LoginComponent {
     this.http.post(url,person).subscribe((data:any)=>{
       console.warn(data.tokenn);
       localStorage.setItem("tokenn",data.tokenn);
+      localStorage.setItem("emp",this.email);
       this.router.navigate(['/Dash']);
+    },(err)=>{
+      alert("Wrong Email or Password, Check it again")
     });
   }
 }

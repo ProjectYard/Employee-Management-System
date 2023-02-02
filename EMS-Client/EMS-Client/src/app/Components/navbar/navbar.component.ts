@@ -7,9 +7,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  eml:any = localStorage.getItem('emp')
 
   constructor(private router:Router) { 
     
+  }
+
+  IconHandler(){
+    if(localStorage.getItem('tokenn')){
+      this.router.navigate(["/Dash"])
+    }else{
+      this.router.navigate(["/"])
+    }
   }
   
   LogOut(){
