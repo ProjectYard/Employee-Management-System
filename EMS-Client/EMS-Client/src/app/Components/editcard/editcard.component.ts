@@ -39,6 +39,9 @@ export class EditcardComponent {
     const url = "https://localhost:7092/api/Employee/"+this.editID;
     this.http.put(url,this.emp,httpOptions).subscribe((data)=>{
       console.log(data);
+    },(err)=>{
+      alert("Not allowed");
+      console.log("Not Allowed")
     })
 
     console.log(url);

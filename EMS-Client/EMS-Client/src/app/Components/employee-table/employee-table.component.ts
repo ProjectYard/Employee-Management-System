@@ -53,6 +53,9 @@ export class EmployeeTableComponent {
       console.log(data);
       
       this.ngOnInit();
+    },(err)=>{
+      alert("Not allowed");
+      console.log("Not Allowed")
     })
   }
 }

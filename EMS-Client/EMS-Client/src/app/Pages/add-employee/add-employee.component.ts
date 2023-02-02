@@ -46,7 +46,10 @@ export class AddEmployeeComponent {
     console.log(this.emp);
     this.http.post("https://localhost:7092/api/Employee",this.emp,httpOptions).subscribe((data)=>{
       console.log(data);
-      this.toastr.success('Added successfully');
+      alert("Added Successfully")
+    },(err)=>{
+      alert("Not allowed");
+      console.log("Not Allowed")
     });
     this.clearObj();
   }
