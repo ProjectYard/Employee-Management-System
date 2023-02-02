@@ -10,9 +10,22 @@ import { Router } from '@angular/router';
 export class EditcardComponent {
   @Input() editID = "";
   @Output() newItemEvent = new EventEmitter<boolean>();
+  // @Input() emp2 = {
+  //   firstName:"",
+  //   lastName:"",
+  //   phone:"",
+  //   email:"",
+  //   salary:0,
+  //   location:"",
+  //   department:"",
+  //   password:""
+  // } 
 
+  // @Input() fn = "";
 
-   emp= {
+  // txt:string = this.fn;
+
+  @Input() emp= {
     firstName:"",
     lastName:"",
     phone:"",
@@ -27,7 +40,9 @@ export class EditcardComponent {
     
   }
   ngOnInit():void{
+
   }
+
   editEmployee(){
     const httpOptions = {
       headers: new HttpHeaders({
