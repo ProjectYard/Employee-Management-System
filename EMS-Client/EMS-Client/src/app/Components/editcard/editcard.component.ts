@@ -44,6 +44,7 @@ export class EditcardComponent {
   }
 
   editEmployee(){
+    console.log(this.editID);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',

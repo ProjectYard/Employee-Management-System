@@ -20,7 +20,7 @@ export class EmployeeTableComponent {
   }
 
   edtHandler(){
-    console.log("Testing")
+    
   }
 
   editBtnHandler(){
